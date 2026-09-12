@@ -1,2 +1,4 @@
 .env 
 .venv/
+boh_images_resized/
+boh_images/
