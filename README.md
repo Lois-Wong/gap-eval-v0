@@ -1,7 +1,6 @@
 # Inferring missingness and underrepresentation in black-box model knowledge (POC)
 
-Testing whether model transcription failure tracks how much comparable
-material exists in the digital record.
+Identifying gaps in data/model knowledge via prompting / other black box probing techniques and developing targeted remediation
 
 ## Contents
 
@@ -12,17 +11,16 @@ material exists in the digital record.
 - [Ground truth](#ground-truth)
 - [Prompt design](#prompt-design)
 - [Metrics](#metrics)
-- [Confounds to control](#confounds-to-control)
+- [Confounding Variables](#confounding-variables-to-control)
 - [Scope](#scope)
 - [Part 2: remediation](#part-2-remediation)
 - [This project](#this-project)
 
 ## Hypothesis
-Underrepresentation in training data causes model failure. Failure rate can be predicted by how much comparable material exists in the digital record.
+Underrepresentation in training data causes model error. Error rate can be predicted by how much comparable material exists in the digital record.
 
-Underlying premise: Gaps in training data causes model error. Some of that
-error is bias, and bias produces harm — but that link is deferred, not
-claimed here. See [Scope](#scope).
+Underlying idea: Gaps in training data causes model error. Some of that
+error is bias, and bias produces harm, but that link is deferred. See [Scope](#scope).
 
 ## Why this design 
 
@@ -58,7 +56,7 @@ interesting way, and that's also worth knowing.
 
 Note: Images are not distributed in this repo.
 
-Six pages of a Book of Hours from the University of Chicago's special collections containing
+A Book of Hours from the University of Chicago's special collections containing
 family records in a private 16th-century French hand — a marriage in
 October 1573, two children born 1575 and 1576, etc..
 
@@ -89,11 +87,9 @@ manuscript and edition as much as model error.
 
 > **TODO — verify** this characterization with Emily before relying on it.
 
-
 Workaround:
 
 Inter-model agreement: Run several models on the same page. Consensus is probably right; divergence points are where the difficulty is. This needs no ground truth and identifies exactly the spots worth an expert's attention. Borrowed from inter-annotator agreement metrics. 
-
 
 
 ## Prompt design
@@ -145,7 +141,7 @@ Language and period. Differences here change the task, not just the coverage. Ke
 
 TODO 
 
-## Remediation (part 2)
+## Part 2 - Remediation 
 
 Remediation: TBD, but supply corrected examples, few-shot prompting, fine-tuning, etc., 
 
